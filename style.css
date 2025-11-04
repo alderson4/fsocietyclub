@@ -1,133 +1,72 @@
 body {
-  font-family: "Vazir", sans-serif;
-  background-color: #0f0f0f;
-  color: #f0f0f0;
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Tahoma', sans-serif;
+  text-align: center;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
-header {
-  background-color: #1a1a1a;
-  padding: 30px;
-}
-
-header h1 {
-  font-size: 2.5em;
-  color: #00ff99;
-  margin: 0;
-}
-
-.box {
-  margin: 30px auto;
-  padding: 25px;
-  background-color: #1f1f1f;
-  border: 2px solid #00ff99;
-  border-radius: 10px;
-  width: 280px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.box:hover {
-  background-color: #2a2a2a;
-}
-
-.box a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.2em;
-  font-weight: bold;
-  display: block;
-}
-
-footer {
-  background-color: #1a1a1a;
-  color: #888;
-  padding: 15px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-.search {
-  margin: 20px;
-}
-
-.search input {
-  padding: 10px;
-  width: 200px;
-  border-radius: 5px;
-  border: none;
-}
-
-.search button {
-  padding: 10px 15px;
-  background-color: #00ff99;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-main {
-  padding: 20px;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-.lesson {
-  background-color: #1f1f1f;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
-  text-align: right;
-}
-
-.lesson h2 {
-  color: #00ff99;
-  font-size: 1.4em;
-  margin-bottom: 10px;
-}
-
-.lesson p {
-  font-size: 1em;
-  line-height: 1.8;
-  color: #ddd;
-}
-
-/* واکنش‌گرا برای موبایل */
-@media screen and (max-width: 600px) {
-  .box {
-    width: 90%;
-    font-size: 1em;
-  }
-
-  header h1 {
-    font-size: 1.8em;
-  }
-
-  .search input {
-    width: 70%;
-  }
-
-  .lesson p {
-    font-size: 1em;
-    line-height: 1.6;
-  }
-}
 .site-logo {
-  width: 60px;
-  margin-bottom: 10px;
+  width: 80px;
+  margin: 20px auto 10px;
+  display: block;
+  border-radius: 10px;
+}
+
+.search-box {
+  margin: 20px auto;
+}
+
+input[type="text"] {
+  padding: 8px;
+  width: 200px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 30px auto;
+  max-width: 300px;
+}
+
+.card {
+  background-color: #111;
+  padding: 15px;
+  border-radius: 12px;
+  color: #0f0;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.card:hover {
+  background-color: #222;
+}
+
+.kali-logo {
+  width: 40px;
+  height: auto;
+  margin-bottom: 6px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 8px;
+  border-radius: 6px;
 }
-.kali-logo {
-  width: 120px;
-  margin: 20px auto;
-  display: block;
-  border-radius: 10px;
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
 }
