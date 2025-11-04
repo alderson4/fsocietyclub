@@ -1,0 +1,1 @@
+function search(){const q=document.getElementById("searchBox").value.toLowerCase();if(q.includes("کالی"))window.location.href="kali.html";else if(q.includes("امنیت"))window.location.href="security.html";else if(q.includes("فیشینگ"))window.location.href="phishing.html";else alert("نتیجه‌ای یافت نشد!")}
