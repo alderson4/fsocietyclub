@@ -1,4 +1,4 @@
-body {
+ body {
   background-color: #000;
   color: #0f0;
   font-family: 'Vazirmatn', Tahoma, sans-serif;
@@ -66,11 +66,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0px; /* فاصله صفر بین لوگو و متن */
+  gap: 0px;
 }
 
 .kali-logo {
-  width: 90px; /* بزرگ‌تر شد */
+  width: 100px;
   height: auto;
   border-radius: 8px;
 }
@@ -79,7 +79,7 @@ button {
   font-weight: bold;
   font-size: 1.3em;
   line-height: 1;
-  margin-right: 6px; /* متن کمی از لوگو فاصله بگیره ولی خیلی نزدیک باشه */
+  margin-right: 8px;
 }
 
 footer {
