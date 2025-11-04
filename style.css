@@ -75,8 +75,45 @@ main {
   text-align: justify;
 }
 
-main p {
+.lesson {
   background-color: #1f1f1f;
-  padding: 15px;
-  border-radius: 8px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  text-align: right;
+}
+
+.lesson h2 {
+  color: #00ff99;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.lesson p {
+  font-size: 1em;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* واکنش‌گرا برای موبایل */
+@media screen and (max-width: 600px) {
+  .box {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .search input {
+    width: 70%;
+  }
+
+  .lesson p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
 }
