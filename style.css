@@ -8,7 +8,7 @@ body {
 }
 
 .site-logo {
-  width: 80px;
+  width: 100px;
   margin: 20px auto 10px;
   display: block;
   border-radius: 10px;
@@ -39,7 +39,7 @@ button {
   flex-direction: column;
   gap: 15px;
   margin: 30px auto;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 .card {
@@ -61,21 +61,15 @@ button {
 .kali-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .kali-logo {
-  width: 36px;
+  width: 60px;
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-footer {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #888;
-}
 footer {
   margin-top: 40px;
   font-size: 0.9em;
