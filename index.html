@@ -21,18 +21,19 @@
 
   <div class="card-container">
 
-    <a href="kali.html" class="card kali-card">
-      <div class="kali-row">
-        <img src="copilot_image_1762258233427.jpeg" alt="آموزش اصول کالی" class="kali-logo">
-        <span class="kali-text">آموزش اصول کالی</span>
-      </div>
+    <!-- کارت آموزش اصول کالی با عکس بالا -->
+    <a href="kali.html" class="card image-card">
+      <img src="copilot_image_1762281337449.jpeg" alt="آموزش اصول کالی" class="card-image">
+      <p class="card-text">آموزش اصول کالی</p>
     </a>
 
+    <!-- کارت آموزش هک و امنیت -->
     <a href="security.html" class="card">
       <p>آموزش هک و امنیت</p>
     </a>
 
-    <a href="tools.html" class="card">
+    <!-- کارت ابزار هکینگ با لینک اصلاح‌شده -->
+    <a href="phishing.html" class="card">
       <p>ابزار هکینگ 2025</p>
     </a>
 
@@ -50,7 +51,7 @@
       } else if (query.includes("هک") || query.includes("امنیت")) {
         window.location.href = "security.html";
       } else if (query.includes("فیشینگ") || query.includes("ابزار") || query.includes("هکینگ")) {
-        window.location.href = "tools.html";
+        window.location.href = "phishing.html";
       } else {
         alert("نتیجه‌ای برای \"" + query + "\" پیدا نشد.");
       }
