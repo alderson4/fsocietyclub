@@ -5,10 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    function searchContent() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query.includes("کالی")) {
+        window.location.href = "kali.html";
+      } else if (query.includes("ترموکس") || query.includes("لینوکس")) {
+        window.location.href = "termux.html";
+      } else if (query.includes("فیشینگ") || query.includes("ابزار")) {
+        window.location.href = "tools.html";
+      } else {
+        alert("نتیجه‌ای برای \"" + query + "\" پیدا نشد.");
+      }
+    }
+  </script>
 </head>
 <body>
 
-  <!-- لوگوی اصلی سایت بالا -->
+  <!-- لوگوی اصلی سایت -->
   <header>
     <img src="fsociety_logo.jpg" alt="fsocietyclub logo" class="site-logo">
     <h1>به اف‌سوسایتی خوش آمدید</h1>
@@ -16,8 +30,8 @@
 
   <!-- بخش جستجو -->
   <div class="search-box">
-    <input type="text" placeholder="جستجو...">
-    <button>برو</button>
+    <input type="text" id="searchInput" placeholder="جستجو...">
+    <button onclick="searchContent()">برو</button>
   </div>
 
   <!-- دکمه‌های آموزشی -->
@@ -43,7 +57,7 @@
 
   <!-- فوتر -->
   <footer>
-    <p>© 2025 fsocietyclub - ساخته شده توسط آرین</p>
+    <p>© 2025 fsocietyclub - ساخته شده توسط آلدین</p>
   </footer>
 
 </body>
