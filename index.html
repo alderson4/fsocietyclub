@@ -11,12 +11,16 @@
 
   <header>
     <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
-    <h1>به اف‌سوسایتی خوش آمدید</h1>
+    <h1>آموزش‌های امنیتی fsocietyclub</h1>
   </header>
 
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="جستجو...">
-    <button onclick="searchContent()">برو</button>
+    <form>
+      <div class="search-wrapper">
+        <input type="text" placeholder="جستجو در دوره‌ها..." />
+        <button type="submit">🔍</button>
+      </div>
+    </form>
   </div>
 
   <div class="card-container">
@@ -26,34 +30,13 @@
       <p class="card-text">آموزش اصول کالی</p>
     </a>
 
-    <a href="security.html" class="card">
-      <p>آموزش هک و امنیت</p>
-    </a>
-
-    <a href="phishing.html" class="card">
-      <p>ابزار هکینگ 2025</p>
-    </a>
+    <!-- کارت‌های دیگر... -->
 
   </div>
 
   <footer>
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
-
-  <script>
-    function searchContent() {
-      const query = document.getElementById("searchInput").value.trim();
-      if (query.includes("کالی")) {
-        window.location.href = "kali.html";
-      } else if (query.includes("هک") || query.includes("امنیت")) {
-        window.location.href = "security.html";
-      } else if (query.includes("فیشینگ") || query.includes("ابزار") || query.includes("هکینگ")) {
-        window.location.href = "phishing.html";
-      } else {
-        alert("نتیجه‌ای برای \"" + query + "\" پیدا نشد.");
-      }
-    }
-  </script>
 
 </body>
 </html>
