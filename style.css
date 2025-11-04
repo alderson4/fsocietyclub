@@ -125,3 +125,10 @@ main {
   margin-right: auto;
   border-radius: 8px;
 }
+.site-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
