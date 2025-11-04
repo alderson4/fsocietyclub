@@ -69,14 +69,14 @@ button {
 }
 
 .kali-logo {
-  width: 50px;
+  width: 80px; /* بزرگ‌تر شد */
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .kali-text {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1;
 }
 
