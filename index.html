@@ -5,26 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
-  <script>
-    function searchContent() {
-      const query = document.getElementById("searchInput").value.trim();
-      if (query.includes("کالی")) {
-        window.location.href = "kali.html";
-      } else if (query.includes("ترموکس") || query.includes("لینوکس")) {
-        window.location.href = "termux.html";
-      } else if (query.includes("فیشینگ") || query.includes("ابزار")) {
-        window.location.href = "tools.html";
-      } else {
-        alert("نتیجه‌ای برای \"" + query + "\" پیدا نشد.");
-      }
-    }
-  </script>
 </head>
 <body>
 
   <!-- لوگوی اصلی سایت -->
   <header>
-    <img src="fsociety_logo.jpg" alt="fsocietyclub logo" class="site-logo">
+    <img src="image_1762245500463.jpeg" alt="fsocietyclub logo" class="site-logo">
     <h1>به اف‌سوسایتی خوش آمدید</h1>
   </header>
 
@@ -34,33 +20,49 @@
     <button onclick="searchContent()">برو</button>
   </div>
 
-  <!-- دکمه‌های آموزشی -->
+  <!-- دکمه‌های آموزشی لینک‌دار -->
   <div class="card-container">
 
     <!-- آموزش اصول کالی با لوگو کنار متن -->
-    <div class="card kali-card">
+    <a href="kali.html" class="card kali-card">
       <div class="kali-row">
         <img src="copilot_image_1762258233427.jpeg" alt="آموزش اصول کالی" class="kali-logo">
         <p>آموزش اصول کالی</p>
       </div>
-    </div>
+    </a>
 
     <!-- آموزش هک و امنیت -->
-    <div class="card">
+    <a href="security.html" class="card">
       <p>آموزش هک و امنیت</p>
-    </div>
+    </a>
 
     <!-- ابزار فیشینگ 2025 -->
-    <div class="card">
+    <a href="tools.html" class="card">
       <p>ابزار فیشینگ 2025</p>
-    </div>
+    </a>
 
   </div>
 
   <!-- فوتر -->
   <footer>
-    <p>© 2025 fsocietyclub - ساخته شده توسط آرین</p>
+    <p>© 2025 fsocietyclub | ساخته شده توسط آرین </p>
   </footer>
+
+  <!-- اسکریپت جستجو -->
+  <script>
+    function searchContent() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query.includes("کالی")) {
+        window.location.href = "kali.html";
+      } else if (query.includes("هک") || query.includes("امنیت")) {
+        window.location.href = "security.html";
+      } else if (query.includes("فیشینگ") || query.includes("ابزار")) {
+        window.location.href = "tools.html";
+      } else {
+        alert("نتیجه‌ای برای \"" + query + "\" پیدا نشد.");
+      }
+    }
+  </script>
 
 </body>
 </html>
