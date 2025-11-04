@@ -48,7 +48,10 @@ button {
   border-radius: 12px;
   color: #0f0;
   box-shadow: 0 0 10px #0f0;
+  text-align: center;
   transition: 0.3s;
+  text-decoration: none;
+  display: block;
 }
 
 .card:hover {
@@ -68,6 +71,11 @@ button {
   border-radius: 6px;
 }
 
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
+}
 footer {
   margin-top: 40px;
   font-size: 0.9em;
