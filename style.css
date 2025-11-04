@@ -63,21 +63,21 @@ button {
 }
 
 .kali-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
+  gap: 4px; /* فاصله خیلی کم بین لوگو و متن */
 }
 
 .kali-logo {
-  width: 60px;
+  width: 50px;
   height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .kali-text {
-  line-height: 60px;
   font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1;
 }
 
 footer {
