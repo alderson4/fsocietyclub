@@ -1,10 +1,11 @@
 body {
   background-color: #000;
   color: #0f0;
-  font-family: 'Tahoma', sans-serif;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
+  direction: rtl;
 }
 
 .site-logo {
@@ -23,6 +24,7 @@ input[type="text"] {
   width: 200px;
   border-radius: 6px;
   border: none;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
 }
 
 button {
@@ -32,6 +34,7 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
 }
 
 .card-container {
@@ -48,10 +51,11 @@ button {
   border-radius: 12px;
   color: #0f0;
   box-shadow: 0 0 10px #0f0;
-  text-align: center;
+  text-align: right;
   transition: 0.3s;
   text-decoration: none;
   display: block;
+  font-size: 1.1em;
 }
 
 .card:hover {
@@ -74,4 +78,5 @@ footer {
   margin-top: 40px;
   font-size: 0.9em;
   color: #888;
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
 }
