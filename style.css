@@ -65,13 +65,19 @@ button {
 .kali-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .kali-logo {
   width: 60px;
   height: auto;
   border-radius: 8px;
+}
+
+.kali-text {
+  line-height: 60px;
+  font-weight: bold;
 }
 
 footer {
