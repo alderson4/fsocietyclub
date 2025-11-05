@@ -14,6 +14,13 @@
     <h1>آموزش اصول کلی</h1>
   </header>
 
+  <div class="search-box">
+    <div class="search-wrapper">
+      <input type="text" placeholder="جستجو..." id="searchInput">
+      <button onclick="search()">جستجو</button>
+    </div>
+  </div>
+
   <div class="card-container">
 
     <a href="kali.html" class="card card-click" onclick="delayedNav(event)">
@@ -39,6 +46,12 @@
       setTimeout(() => {
         window.location.href = link;
       }, 1000);
+    }
+
+    function search() {
+      const input = document.getElementById("searchInput").value.trim();
+      if (input === "") return;
+      alert("نتیجه‌ای برای \"" + input + "\" یافت نشد.");
     }
   </script>
 
