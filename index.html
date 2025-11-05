@@ -16,8 +16,7 @@
 
   <div class="search-box">
     <div class="search-wrapper">
-      <input type="text" placeholder="جستجو..." id="searchInput">
-      <button onclick="search()">جستجو</button>
+      <input type="text" placeholder="جستجو..." id="searchInput" oninput="filterCards()">
     </div>
   </div>
 
@@ -48,10 +47,22 @@
       }, 1000);
     }
 
-    function search() {
-      const input = document.getElementById("searchInput").value.trim();
-      if (input === "") return;
-      alert("نتیجه‌ای برای \"" + input + "\" یافت نشد.");
+    function filterCards() {
+      const input = document.getElementById("searchInput").value.toLowerCase().trim();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (
+          text.includes(input) ||
+          (input === "ک" || input === "k") && text.includes("کالی") ||
+          (input === "ن" || input === "n") && text.includes("nmap")
+        ) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
     }
   </script>
 
