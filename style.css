@@ -25,6 +25,53 @@ h1 {
   margin: 0;
 }
 
+.search-box {
+  margin: 30px auto;
+  max-width: 90%;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  border: 2px solid #0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0f0;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper:hover {
+  box-shadow: 0 0 25px #0f0, 0 0 40px #0f0;
+  transform: scale(1.03);
+}
+
+.search-wrapper input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #0f0;
+  font-size: 1em;
+  outline: none;
+}
+
+.search-wrapper button {
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.search-wrapper button:hover {
+  background-color: #fff;
+  color: #0f0;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -116,6 +163,15 @@ footer {
     font-size: 1.4em;
   }
 
+  .search-wrapper input[type="text"] {
+    font-size: 0.9em;
+  }
+
+  .search-wrapper button {
+    font-size: 1em;
+    padding: 6px 10px;
+  }
+
   .card-text {
     font-size: 1.1em;
   }
@@ -128,4 +184,4 @@ footer {
   footer {
     font-size: 0.8em;
   }
-      }
+}
