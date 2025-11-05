@@ -44,7 +44,7 @@
       </ul>
     </div>
 
-    <a href="index.html" class="card">
+    <a href="index.html" class="card card-click" onclick="delayedNav(event)">
       <p class="card-text">بازگشت به صفحه اصلی</p>
     </a>
 
@@ -53,6 +53,16 @@
   <footer>
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
+
+  <script>
+    function delayedNav(event) {
+      event.preventDefault();
+      const link = event.currentTarget.getAttribute('href');
+      setTimeout(() => {
+        window.location.href = link;
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>
