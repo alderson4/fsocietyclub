@@ -12,6 +12,13 @@
       transform: scale(1.05);
       transition: all 0.3s ease-in-out;
     }
+    #noResult {
+      color: #f00;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.1em;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -32,10 +39,10 @@
 
   <div class="card-container" id="cardContainer">
 
-    <a href="kali.html" class="card image-card" data-keywords="کالی kali k">
+    <div class="card image-card" data-keywords="کالی kali k" onclick="delayedRedirect('kali.html')">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش اصول کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
-    </a>
+    </div>
 
     <a href="security.html" class="card image-card" data-keywords="nmap انمپ n">
       <img src="image_1762333867051.jpeg" alt="آموزش Nmap" class="card-image">
@@ -43,6 +50,8 @@
     </a>
 
   </div>
+
+  <div id="noResult">❌ نتیجه‌ای برای «...» پیدا نشد.</div>
 
   <footer>
     <p>© 2025 fsocietyclub | طراحی شده توسط آرین</p>
@@ -53,8 +62,10 @@
       const input = document.getElementById("searchInput").value.trim().toLowerCase();
       const container = document.getElementById("cardContainer");
       const cards = Array.from(container.querySelectorAll(".card"));
+      const noResult = document.getElementById("noResult");
 
       cards.forEach(card => card.classList.remove("highlight"));
+      noResult.style.display = "none";
 
       if (input.length === 0) {
         cards.forEach(card => container.appendChild(card));
@@ -68,6 +79,11 @@
 
       const unmatched = cards.filter(card => !matched.includes(card));
 
+      if (matched.length === 0) {
+        noResult.innerText = `❌ نتیجه‌ای برای «${input}» پیدا نشد.`;
+        noResult.style.display = "block";
+      }
+
       matched.forEach(card => {
         container.appendChild(card);
         card.classList.add("highlight");
@@ -77,7 +93,13 @@
     }
 
     function searchSite() {
-      return false; // جلوگیری از ارسال فرم
+      return false;
+    }
+
+    function delayedRedirect(url) {
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1000);
     }
   </script>
 
