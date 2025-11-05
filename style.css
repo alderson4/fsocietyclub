@@ -27,7 +27,7 @@ h1 {
 
 .search-box {
   margin: 30px auto;
-  max-width: 320px;
+  max-width: 90%;
 }
 
 .search-wrapper {
@@ -79,6 +79,7 @@ h1 {
   gap: 25px;
   margin: 40px auto;
   max-width: 600px;
+  padding: 0 10px;
 }
 
 .card {
@@ -114,7 +115,11 @@ h1 {
 }
 
 #noResult {
-  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  color: #f00;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1em;
+  display: none;
 }
 
 footer {
@@ -125,3 +130,30 @@ footer {
   border-top: 1px solid #0f0;
   margin-top: 40px;
 }
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.4em;
+  }
+
+  .search-wrapper input[type="text"] {
+    font-size: 0.9em;
+  }
+
+  .search-wrapper button {
+    font-size: 1em;
+    padding: 6px 10px;
+  }
+
+  .card-text {
+    font-size: 1em;
+  }
+
+  .card {
+    padding: 8px;
+  }
+
+  footer {
+    font-size: 0.8em;
+  }
+    }
