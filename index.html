@@ -22,15 +22,23 @@
 
   <div class="card-container">
 
-    <a href="kali.html" class="card card-click" onclick="delayedNav(event)">
+    <a href="kali.html" class="card card-click" onclick="delayedNav(event)" data-keywords="کالی,kali,ک,آ,ا">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
     </a>
 
-    <a href="security.html" class="card card-click" onclick="delayedNav(event)">
+    <a href="security.html" class="card card-click" onclick="delayedNav(event)" data-keywords="nmap,انمپ,ن,ا,آ">
       <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
       <p class="card-text">آموزش ابزار Nmap</p>
     </a>
+
+    <!-- آموزش‌های آینده فقط با اضافه کردن کارت جدید با data-keywords مناسب -->
+    <!-- مثال:
+    <a href="metasploit.html" class="card card-click" onclick="delayedNav(event)" data-keywords="متااسپلویت,metasploit,m,م">
+      <img src="metasploit.jpg" alt="Metasploit" class="card-image">
+      <p class="card-text">آموزش Metasploit</p>
+    </a>
+    -->
 
   </div>
 
@@ -53,11 +61,8 @@
 
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        if (
-          text.includes(input) ||
-          (input === "ک" || input === "k") && text.includes("کالی") ||
-          (input === "ن" || input === "n") && text.includes("nmap")
-        ) {
+        const keywords = card.getAttribute("data-keywords")?.toLowerCase() || "";
+        if (text.includes(input) || keywords.includes(input)) {
           card.style.display = "block";
         } else {
           card.style.display = "none";
