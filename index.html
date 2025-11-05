@@ -9,8 +9,6 @@
 </head>
 <body>
 
-  <div id="fade-overlay"></div>
-
   <header>
     <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
     <h1>آموزش اصول کلی</h1>
@@ -18,7 +16,7 @@
 
   <div class="card-container">
 
-    <a href="kali.html" class="card card-click">
+    <a href="kali.html" class="card card-click" onclick="delayedNav(event)">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
     </a>
@@ -38,11 +36,9 @@
     function delayedNav(event) {
       event.preventDefault();
       const link = event.currentTarget.getAttribute('href');
-      const overlay = document.getElementById('fade-overlay');
-      overlay.style.opacity = '0.6';
       setTimeout(() => {
         window.location.href = link;
-      }, 400);
+      }, 1000);
     }
   </script>
 
