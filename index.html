@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE ht<!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
@@ -25,14 +25,16 @@
 
   <div class="card-container">
 
-    <a href="security.html" class="card image-card">
-      <img src="image_1762333867051.jpeg" alt="آموزش Nmap" class="card-image">
-      <p class="card-text">آموزش Nmap</p>
-    </a>
-
+    <!-- آموزش اصول کالی -->
     <a href="kali.html" class="card image-card">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش اصول کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
+    </a>
+
+    <!-- آموزش Nmap -->
+    <a href="security.html" class="card image-card">
+      <img src="image_1762333867051.jpeg" alt="آموزش Nmap" class="card-image">
+      <p class="card-text">آموزش Nmap</p>
     </a>
 
   </div>
@@ -43,10 +45,19 @@
 
   <script>
     function searchSite() {
-      const input = document.getElementById("searchInput").value.trim();
-      if (input.length > 0) {
-        alert("نتیجه‌ای برای «" + input + "» پیدا نشد. لطفاً دقیق‌تر جستجو کنید.");
+      const input = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      if (input.startsWith("ک") || input.includes("کالی") || input === "k") {
+        window.location.href = "kali.html";
+        return false;
       }
+
+      if (input.startsWith("n") || input.includes("nmap")) {
+        window.location.href = "security.html";
+        return false;
+      }
+
+      alert("نتیجه‌ای برای «" + input + "» پیدا نشد. لطفاً دقیق‌تر جستجو کنید.");
       return false;
     }
   </script>
