@@ -75,6 +75,33 @@ h1 {
   transform: scale(0.97);
 }
 
+.clickable-box {
+  background-color: #111;
+  border: 2px solid #0f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 90%;
+  box-shadow: 0 0 15px #0f0;
+  text-align: right;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.clickable-box:hover {
+  box-shadow: 0 0 25px #0f0, 0 0 40px #0f0;
+  transform: scale(1.03);
+}
+
+.clickable-box h2,
+.clickable-box p,
+.clickable-box li {
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.8;
+}
+
 footer {
   text-align: center;
   padding: 20px;
@@ -83,3 +110,22 @@ footer {
   border-top: 1px solid #0f0;
   margin-top: 40px;
 }
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.4em;
+  }
+
+  .card-text {
+    font-size: 1.1em;
+  }
+
+  .card {
+    padding: 5px;
+    max-width: 90%;
+  }
+
+  footer {
+    font-size: 0.8em;
+  }
+      }
