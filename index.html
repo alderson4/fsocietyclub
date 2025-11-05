@@ -9,6 +9,8 @@
 </head>
 <body>
 
+  <div id="fade-overlay"></div>
+
   <header>
     <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
     <h1>آموزش اصول کلی</h1>
@@ -36,7 +38,8 @@
     function delayedNav(event) {
       event.preventDefault();
       const link = event.currentTarget.getAttribute('href');
-      event.currentTarget.style.opacity = '0.5';
+      const overlay = document.getElementById('fade-overlay');
+      overlay.style.opacity = '0.6';
       setTimeout(() => {
         window.location.href = link;
       }, 400);
