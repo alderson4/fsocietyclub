@@ -1,4 +1,4 @@
-<!DOCTYPE ht<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,13 @@
   <title>fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .highlight {
+      box-shadow: 0 0 25px #0f0 !important;
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
 </head>
 <body>
 
@@ -17,22 +24,20 @@
   <div class="search-box">
     <form onsubmit="return searchSite()">
       <div class="search-wrapper">
-        <input type="text" id="searchInput" placeholder="جستجو در دوره‌ها..." />
+        <input type="text" id="searchInput" placeholder="جستجو در دوره‌ها..." oninput="filterCards()" />
         <button type="submit">🔍</button>
       </div>
     </form>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" id="cardContainer">
 
-    <!-- آموزش اصول کالی -->
-    <a href="kali.html" class="card image-card">
+    <a href="kali.html" class="card image-card" data-keywords="کالی kali k">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش اصول کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
     </a>
 
-    <!-- آموزش Nmap -->
-    <a href="security.html" class="card image-card">
+    <a href="security.html" class="card image-card" data-keywords="nmap انمپ n">
       <img src="image_1762333867051.jpeg" alt="آموزش Nmap" class="card-image">
       <p class="card-text">آموزش Nmap</p>
     </a>
@@ -44,21 +49,35 @@
   </footer>
 
   <script>
-    function searchSite() {
+    function filterCards() {
       const input = document.getElementById("searchInput").value.trim().toLowerCase();
+      const container = document.getElementById("cardContainer");
+      const cards = Array.from(container.querySelectorAll(".card"));
 
-      if (input.startsWith("ک") || input.includes("کالی") || input === "k") {
-        window.location.href = "kali.html";
-        return false;
+      cards.forEach(card => card.classList.remove("highlight"));
+
+      if (input.length === 0) {
+        cards.forEach(card => container.appendChild(card));
+        return;
       }
 
-      if (input.startsWith("n") || input.includes("nmap")) {
-        window.location.href = "security.html";
-        return false;
-      }
+      const matched = cards.filter(card => {
+        const keywords = card.getAttribute("data-keywords");
+        return keywords.includes(input);
+      });
 
-      alert("نتیجه‌ای برای «" + input + "» پیدا نشد. لطفاً دقیق‌تر جستجو کنید.");
-      return false;
+      const unmatched = cards.filter(card => !matched.includes(card));
+
+      matched.forEach(card => {
+        container.appendChild(card);
+        card.classList.add("highlight");
+      });
+
+      unmatched.forEach(card => container.appendChild(card));
+    }
+
+    function searchSite() {
+      return false; // جلوگیری از ارسال فرم
     }
   </script>
 
