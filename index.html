@@ -6,100 +6,40 @@
   <title>fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    .highlight {
-      box-shadow: 0 0 25px #0f0 !important;
-      transform: scale(1.05);
-      transition: all 0.3s ease-in-out;
-    }
-    #noResult {
-      color: #f00;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 1.1em;
-      display: none;
-    }
-  </style>
 </head>
 <body>
 
   <header>
     <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
-    <h1>آموزش‌های امنیتی fsocietyclub</h1>
+    <h1>آموزش اصول کلی</h1>
   </header>
 
-  <div class="search-box">
-    <form onsubmit="return searchSite()">
-      <div class="search-wrapper">
-        <input type="text" id="searchInput" placeholder="جستجو در دوره‌ها..." oninput="filterCards()" />
-        <button type="submit">🔍</button>
-      </div>
-    </form>
-  </div>
+  <div class="card-container">
 
-  <div class="card-container" id="cardContainer">
-
-    <div class="card image-card" data-keywords="کالی kali k" onclick="delayedRedirect('kali.html')">
-      <img src="copilot_image_1762281337449.jpeg" alt="آموزش اصول کالی" class="card-image">
+    <a href="kali.html" class="card card-click">
+      <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
-    </div>
+    </a>
 
-    <a href="security.html" class="card image-card" data-keywords="nmap انمپ n">
-      <img src="image_1762333867051.jpeg" alt="آموزش Nmap" class="card-image">
-      <p class="card-text">آموزش Nmap</p>
+    <a href="security.html" class="card card-click" onclick="delayedNav(event)">
+      <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
+      <p class="card-text">آموزش ابزار Nmap</p>
     </a>
 
   </div>
 
-  <div id="noResult">❌ نتیجه‌ای برای «...» پیدا نشد.</div>
-
   <footer>
-    <p>© 2025 fsocietyclub | طراحی شده توسط آرین</p>
+    <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
 
   <script>
-    function filterCards() {
-      const input = document.getElementById("searchInput").value.trim().toLowerCase();
-      const container = document.getElementById("cardContainer");
-      const cards = Array.from(container.querySelectorAll(".card"));
-      const noResult = document.getElementById("noResult");
-
-      cards.forEach(card => card.classList.remove("highlight"));
-      noResult.style.display = "none";
-
-      if (input.length === 0) {
-        cards.forEach(card => container.appendChild(card));
-        return;
-      }
-
-      const matched = cards.filter(card => {
-        const keywords = card.getAttribute("data-keywords");
-        return keywords.includes(input);
-      });
-
-      const unmatched = cards.filter(card => !matched.includes(card));
-
-      if (matched.length === 0) {
-        noResult.innerText = `❌ نتیجه‌ای برای «${input}» پیدا نشد.`;
-        noResult.style.display = "block";
-      }
-
-      matched.forEach(card => {
-        container.appendChild(card);
-        card.classList.add("highlight");
-      });
-
-      unmatched.forEach(card => container.appendChild(card));
-    }
-
-    function searchSite() {
-      return false;
-    }
-
-    function delayedRedirect(url) {
+    function delayedNav(event) {
+      event.preventDefault();
+      const link = event.currentTarget.getAttribute('href');
+      event.currentTarget.style.opacity = '0.5';
       setTimeout(() => {
-        window.location.href = url;
-      }, 1000);
+        window.location.href = link;
+      }, 400);
     }
   </script>
 
