@@ -36,14 +36,14 @@
       <ul>
         <li><code>nmap 192.168.1.1</code> – اسکن ساده یک IP برای بررسی پورت‌های باز</li>
         <li><code>nmap -sP 192.168.1.0/24</code> – بررسی فعال بودن دستگاه‌ها در یک شبکه محلی</li>
-        <li><code>nmap -v scanme.nmap.org</code> – اسکن دامنه تستی با خروجی جزئی‌تر (مناسب برای تمرین)</li>
+        <li><code>nmap -v scanme.nmap.org</code> – اسکن دامنه تستی با خروجی جزئی‌تر</li>
         <li><code>nmap -F 192.168.1.1</code> – اسکن سریع پورت‌های رایج</li>
         <li><code>nmap --version</code> – نمایش نسخه نصب‌شده Nmap</li>
         <li><code>nmap -h</code> – نمایش راهنمای دستورات Nmap</li>
       </ul>
     </div>
 
-    <a href="index.html" class="card">
+    <a href="index.html" class="card card-click" onclick="delayedNav(event)">
       <p class="card-text">بازگشت به صفحه اصلی</p>
     </a>
 
@@ -52,6 +52,16 @@
   <footer>
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
+
+  <script>
+    function delayedNav(event) {
+      event.preventDefault();
+      const link = event.currentTarget.getAttribute('href');
+      setTimeout(() => {
+        window.location.href = link;
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>
