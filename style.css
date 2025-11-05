@@ -114,7 +114,7 @@ h1 {
   margin: 0;
 }
 
-.section-box {
+.clickable-box {
   background-color: #111;
   border: 2px solid #0f0;
   border-radius: 12px;
@@ -124,20 +124,18 @@ h1 {
   box-shadow: 0 0 15px #0f0;
   text-align: right;
   color: #fff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.section-box h2,
-.section-box h3,
-.section-box h4 {
-  color: #0f0;
-  font-size: 1.4em;
-  margin-bottom: 10px;
+.clickable-box:hover {
+  box-shadow: 0 0 25px #0f0, 0 0 40px #0f0;
+  transform: scale(1.03);
 }
 
-.section-box p,
-.section-box li,
-.section-box span,
-.section-box div {
+.clickable-box h2,
+.clickable-box p,
+.clickable-box li {
   color: #fff;
   font-size: 1em;
   line-height: 1.8;
@@ -186,4 +184,4 @@ footer {
   footer {
     font-size: 0.8em;
   }
-  }
+}
