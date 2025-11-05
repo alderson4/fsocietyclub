@@ -109,7 +109,7 @@ h1 {
 
 .card-text {
   color: #0f0;
-  font-size: 1em;
+  font-size: 1.15em;
   font-weight: bold;
   margin: 0;
 }
@@ -173,7 +173,7 @@ footer {
   }
 
   .card-text {
-    font-size: 0.95em;
+    font-size: 1.05em;
   }
 
   .card {
