@@ -10,7 +10,13 @@
 <body>
 
   <header>
-    <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
+    <div class="top-bar">
+      <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
+      <div class="auth-buttons">
+        <a href="signup.html" class="auth-button">ثبت‌نام</a>
+        <a href="login.html" class="auth-button">ورود</a>
+      </div>
+    </div>
     <h1>آموزش اصول کلی</h1>
   </header>
 
@@ -18,11 +24,6 @@
     <div class="search-wrapper">
       <input type="text" placeholder="جستجو..." id="searchInput" oninput="filterCards()">
     </div>
-  </div>
-
-  <div class="auth-buttons">
-    <a href="signup.html" class="auth-button">ثبت‌نام</a>
-    <a href="login.html" class="auth-button">ورود</a>
   </div>
 
   <div class="card-container">
@@ -36,14 +37,6 @@
       <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
       <p class="card-text">آموزش ابزار Nmap</p>
     </a>
-
-    <!-- آموزش‌های آینده فقط با اضافه کردن کارت جدید با data-keywords مناسب -->
-    <!-- مثال:
-    <a href="metasploit.html" class="card card-click" onclick="delayedNav(event)" data-keywords="متااسپلویت,metasploit,m,م">
-      <img src="metasploit.jpg" alt="Metasploit" class="card-image">
-      <p class="card-text">آموزش Metasploit</p>
-    </a>
-    -->
 
   </div>
 
