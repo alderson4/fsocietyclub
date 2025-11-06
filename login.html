@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود | fsocietyclub</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
+    <h1>ورود به fsocietyclub</h1>
+  </header>
+
+  <div class="form-box">
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <label for="username">نام کاربری:</label>
+      <input type="text" id="username" required>
+
+      <label for="password">رمز عبور:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">ورود</button>
+    </form>
+    <p id="message" class="success-message"></p>
+  </div>
+
+  <footer>
+    <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
+  </footer>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      const storedUser = JSON.parse(localStorage.getItem("fsociety_user"));
+
+      if (storedUser && storedUser.username === username && storedUser.password === password) {
+        document.getElementById("message").textContent = "ورود با موفقیت انجام شد!";
+        document.getElementById("loginForm").reset();
+        // در آینده می‌تونی اینجا منتقل بشی به داشبورد یا صفحه خوش‌آمدگویی
+      } else {
+        document.getElementById("message").textContent = "نام کاربری یا رمز اشتباه است.";
+      }
+    }
+  </script>
+
+</body>
+</html>
