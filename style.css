@@ -9,7 +9,6 @@ body {
   color: #0f0;
 }
 
-/* هدر و نوار دکمه‌ها */
 header {
   padding: 10px 20px 0;
   text-align: center;
@@ -39,7 +38,6 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
-/* متن خوش‌آمدگویی */
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -48,7 +46,6 @@ header {
   text-shadow: 0 0 8px #0f0;
 }
 
-/* لوگو */
 .logo-box {
   margin-top: 10px;
 }
@@ -61,7 +58,6 @@ header {
   display: block;
 }
 
-/* جستجو */
 .search-box {
   margin: 30px auto;
   max-width: 90%;
@@ -94,7 +90,6 @@ header {
   text-align: right;
 }
 
-/* کارت‌ها */
 .card-container {
   display: flex;
   flex-direction: column;
@@ -145,7 +140,6 @@ header {
   transform: scale(0.97);
 }
 
-/* فرم‌ها */
 .form-section {
   background-color: #111;
   border: 2px solid #0f0;
@@ -195,7 +189,6 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
-/* پیام موفقیت یا خطا */
 .success-message {
   color: #0f0;
   margin-top: 10px;
@@ -203,7 +196,6 @@ header {
   text-shadow: 0 0 6px #0f0;
 }
 
-/* دکمه بازگشت */
 .back-button {
   margin-top: 20px;
   text-align: center;
@@ -226,7 +218,6 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
-/* فوتر */
 footer {
   text-align: center;
   padding: 20px;
@@ -236,7 +227,6 @@ footer {
   margin-top: 40px;
 }
 
-/* واکنش‌گرا برای موبایل */
 @media screen and (max-width: 480px) {
   .site-logo {
     max-width: 140px;
@@ -280,4 +270,4 @@ footer {
   footer {
     font-size: 0.8em;
   }
-  }
+}
