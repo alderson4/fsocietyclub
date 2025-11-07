@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  padding: 80px 20px 0; /* اصلاح شده برای فاصله از منوی حساب */
+  padding: 80px 20px 0;
   text-align: center;
   position: relative;
 }
@@ -40,7 +40,7 @@ header {
 }
 
 .user-dropdown {
-  position: absolute; /* اصلاح شده برای جلوگیری از چسبیدن */
+  position: absolute;
   top: 10px;
   right: 10px;
   z-index: 1000;
@@ -219,6 +219,15 @@ header {
   box-shadow: 0 0 16px #0f0;
 }
 
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card a:visited {
+  color: #0f0;
+}
+
 .form-section {
   background-color: #111;
   border: 2px solid #0f0;
@@ -315,3 +324,10 @@ footer {
 
   .card {
     max-width: 90%;
+  }
+
+  .form-section {
+    padding: 20px;
+    max-width: 95%;
+  }
+  }
