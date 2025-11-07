@@ -12,7 +12,9 @@ function loadUserInfo() {
         <p>نام کاربری: ${user.username}</p>
         <p>ایمیل: ${user.email}</p>
         <p>رمز عبور: ${user.password}</p>
-        <p><a href="favorites.html" style="color:#0f0;">رفتن به علاقه‌مندی‌ها</a></p>
+        <div class="favorites-button">
+          <a href="favorites.html">رفتن به علاقه‌مندی‌ها</a>
+        </div>
       `;
     }
   }
