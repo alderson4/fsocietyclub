@@ -3,45 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ورود | fsocietyclub</title>
+  <title>ورود</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="form-section">
-    <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
-    <h2>ورود به fsocietyclub</h2>
-
-    <form id="loginForm" onsubmit="handleLogin(event)">
-      <input type="text" id="username" placeholder="نام کاربری یا ایمیل" required>
-      <input type="password" id="password" placeholder="رمز عبور" required>
-      <button type="submit">ورود</button>
-    </form>
-
-    <p id="message" class="success-message"></p>
-
+    <h2>فرم ورود</h2>
+    <input type="text" placeholder="نام کاربری" id="username" required>
+    <input type="password" placeholder="رمز عبور" id="password" required>
+    <button onclick="login()">ورود</button>
     <div class="back-button">
-      <a href="index.html">بازگشت به صفحه اصلی</a>
+      <a href="index.html">بازگشت</a>
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
-  </footer>
-
   <script>
-    function handleLogin(event) {
-      event.preventDefault();
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value;
+    function login() {
+      const inputUser = document.getElementById("username").value;
+      const inputPass = document.getElementById("password").value;
+      const saved = JSON.parse(localStorage.getItem("fsociety_user"));
 
-      const storedUser = JSON.parse(localStorage.getItem("fsociety_user"));
-
-      if (storedUser && storedUser.username === username && storedUser.password === password) {
-        document.getElementById("message").textContent = "ورود با موفقیت انجام شد!";
-        document.getElementById("loginForm").reset();
+      if (saved && saved.username === inputUser && saved.password === inputPass) {
+        alert("ورود موفقیت‌آمیز بود!");
+        window.location.href = "index.html";
       } else {
-        document.getElementById("message").textContent = "نام کاربری یا رمز اشتباه است.";
+        alert("نام کاربری یا رمز عبور اشتباه است.");
       }
     }
   </script>
