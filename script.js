@@ -1,27 +1,5 @@
-function search() {
-  const query = document.getElementById("searchBox").value.toLowerCase().trim();
-
-  if (/کالی|kali/.test(query)) {
-    window.location.href = "kali.html";
-  } else if (/امنیت|nmap|انمپ/.test(query)) {
-    window.location.href = "security.html";
-  } else if (/فیشینگ|phishing/.test(query)) {
-    window.location.href = "phishing.html";
-  } else {
-    alert("نتیجه‌ای یافت نشد. لطفاً دوباره تلاش کنید.");
-  }
-}
-
-function delayedNav(event) {
-  event.preventDefault();
-  const link = event.currentTarget.getAttribute('href');
-  setTimeout(() => {
-    window.location.href = link;
-  }, 1000);
-}
-
 function filterCards() {
-  const input = document.getElementById("searchBox").value.toLowerCase().trim();
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
   const cards = document.querySelectorAll(".card");
 
   cards.forEach(card => {
