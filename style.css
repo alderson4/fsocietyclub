@@ -95,6 +95,25 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
+.logout-button button {
+  margin-top: 10px;
+  background-color: #f00;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #f00;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout-button button:hover {
+  background-color: #fff;
+  color: #f00;
+  box-shadow: 0 0 20px #f00;
+}
+
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -295,39 +314,3 @@ header {
 
 .back-button a:hover {
   background-color: #fff;
-  color: #0f0;
-  box-shadow: 0 0 20px #0f0;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #0f0;
-  font-size: 0.9em;
-  border-top: 1px solid #0f0;
-  margin-top: 40px;
-}
-
-@media screen and (max-width: 480px) {
-  .site-logo {
-    max-width: 140px;
-  }
-
-  .auth-button {
-    padding: 6px 12px;
-    font-size: 0.9em;
-  }
-
-  .card-text {
-    font-size: 1.1em;
-  }
-
-  .card {
-    max-width: 90%;
-  }
-
-  .form-section {
-    padding: 20px;
-    max-width: 95%;
-  }
-  }
