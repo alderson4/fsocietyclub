@@ -29,23 +29,22 @@
 
   <div class="search-box">
     <div class="search-wrapper">
-      <input type="text" placeholder="جستجو..." id="searchBox">
-      <button onclick="search()">جستجو</button>
+      <input type="text" placeholder="جستجو..." id="searchInput" oninput="filterCards()">
     </div>
   </div>
 
   <div class="card-container">
-    <a href="kali.html" class="card card-click" onclick="delayedNav(event)" data-keywords="کالی,kali,ک,آ,ا">
+    <a href="kali.html" class="card card-click" data-keywords="کالی,kali,ک,آ,ا">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
     </a>
 
-    <a href="security.html" class="card card-click" onclick="delayedNav(event)" data-keywords="nmap,انمپ,ن,ا,آ,امنیت">
+    <a href="security.html" class="card card-click" data-keywords="nmap,انمپ,ن,ا,آ,امنیت">
       <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
       <p class="card-text">آموزش ابزار Nmap</p>
     </a>
 
-    <a href="phishing.html" class="card card-click" onclick="delayedNav(event)" data-keywords="فیشینگ,phishing,حمله">
+    <a href="phishing.html" class="card card-click" data-keywords="فیشینگ,phishing,حمله">
       <img src="phishing.jpg" alt="Phishing" class="card-image">
       <p class="card-text">آموزش فیشینگ</p>
     </a>
