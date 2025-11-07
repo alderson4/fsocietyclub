@@ -15,6 +15,11 @@
       <a href="login.html" class="auth-button">ورود</a>
     </div>
 
+    <div class="user-dropdown" id="userDropdown" style="display: none;">
+      <button onclick="toggleDropdown()">👤 حساب کاربری</button>
+      <div id="dropdown-content" class="dropdown-content"></div>
+    </div>
+
     <p class="welcome-text">به باشگاه اف‌سوسایتی خوش آمدید — جایی برای یادگیری، نفوذ، و آزادی دیجیتال</p>
 
     <div class="logo-box">
@@ -67,6 +72,24 @@
         }
       });
     }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function loadUserInfo() {
+      const user = JSON.parse(localStorage.getItem("fsociety_user"));
+      if (user && user.username && user.email) {
+        document.getElementById("userDropdown").style.display = "inline-block";
+        document.getElementById("dropdown-content").innerHTML = `
+          <p>نام کاربری: ${user.username}</p>
+          <p>ایمیل: ${user.email}</p>
+        `;
+      }
+    }
+
+    window.onload = loadUserInfo;
   </script>
 
 </body>
