@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>علاقه‌مندی‌ها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="form-section">
+    <h2>علاقه‌مندی‌های من</h2>
+    <div id="favoritesList"></div>
+    <div class="back-button">
+      <a href="index.html">بازگشت به صفحه اصلی</a>
+    </div>
+  </div>
+
+  <script>
+    const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+    const container = document.getElementById("favoritesList");
+
+    if (favorites.length === 0) {
+      container.innerHTML = "<p>هنوز هیچ آیتمی به علاقه‌مندی‌ها اضافه نشده.</p>";
+    } else {
+      favorites.forEach(link => {
+        const item = document.createElement("p");
+        item.innerHTML = `<a href="${link}" style="color:#0f0;">${link}</a>`;
+        container.appendChild(item);
+      });
+    }
+  </script>
+
+</body>
+</html>
