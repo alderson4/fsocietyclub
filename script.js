@@ -1,12 +1,13 @@
 function search() {
-  const query = document.getElementById("searchBox").value.toLowerCase();
-  if (query.includes("کالی")) {
+  const query = document.getElementById("searchBox").value.toLowerCase().trim();
+
+  if (/کالی|kali/.test(query)) {
     window.location.href = "kali.html";
-  } else if (query.includes("امنیت")) {
+  } else if (/امنیت|nmap|انمپ/.test(query)) {
     window.location.href = "security.html";
-  } else if (query.includes("فیشینگ")) {
+  } else if (/فیشینگ|phishing/.test(query)) {
     window.location.href = "phishing.html";
   } else {
-    alert("نتیجه‌ای یافت نشد!");
+    alert("نتیجه‌ای یافت نشد. لطفاً دوباره تلاش کنید.");
   }
 }
