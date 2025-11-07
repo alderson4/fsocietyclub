@@ -15,6 +15,9 @@ function loadUserInfo() {
         <div class="favorites-button">
           <a href="favorites.html">رفتن به علاقه‌مندی‌ها</a>
         </div>
+        <div class="logout-button">
+          <button onclick="logoutUser()">🚪 خروج از حساب کاربری</button>
+        </div>
       `;
     }
   }
@@ -55,6 +58,12 @@ function addToFavorites(link) {
   } else {
     alert("این آیتم قبلاً در علاقه‌مندی‌ها بوده.");
   }
+}
+
+function logoutUser() {
+  localStorage.removeItem("fsociety_user");
+  localStorage.removeItem("fsociety_favorites");
+  window.location.href = "index.html";
 }
 
 window.onload = loadUserInfo;
