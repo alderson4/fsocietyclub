@@ -9,6 +9,7 @@ body {
   color: #0f0;
 }
 
+/* هدر و نوار دکمه‌ها */
 header {
   padding: 10px 20px 0;
   text-align: center;
@@ -38,6 +39,7 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
+/* متن خوش‌آمدگویی */
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -46,6 +48,7 @@ header {
   text-shadow: 0 0 8px #0f0;
 }
 
+/* لوگو */
 .logo-box {
   margin-top: 10px;
 }
@@ -55,8 +58,12 @@ header {
   border-radius: 20px;
   box-shadow: 0 0 20px #0f0;
   margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* جستجو */
 .search-box {
   margin: 30px auto;
   max-width: 90%;
@@ -89,6 +96,7 @@ header {
   text-align: right;
 }
 
+/* کارت‌ها */
 .card-container {
   display: flex;
   flex-direction: column;
@@ -139,11 +147,12 @@ header {
   transform: scale(0.97);
 }
 
+/* فرم‌ها */
 .form-section {
   background-color: #111;
   border: 2px solid #0f0;
   border-radius: 12px;
-  padding: 20px;
+  padding: 30px 20px;
   margin: 40px auto;
   max-width: 400px;
   box-shadow: 0 0 20px #0f0;
@@ -152,7 +161,7 @@ header {
 
 .form-section h2 {
   color: #0f0;
-  font-size: 1.3em;
+  font-size: 1.4em;
   margin-bottom: 20px;
   text-shadow: 0 0 8px #0f0;
 }
@@ -188,6 +197,38 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
+/* پیام موفقیت یا خطا */
+.success-message {
+  color: #0f0;
+  margin-top: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 6px #0f0;
+}
+
+/* دکمه بازگشت */
+.back-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-button a {
+  background-color: #0f0;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-button a:hover {
+  background-color: #fff;
+  color: #0f0;
+  box-shadow: 0 0 20px #0f0;
+}
+
+/* فوتر */
 footer {
   text-align: center;
   padding: 20px;
@@ -197,6 +238,7 @@ footer {
   margin-top: 40px;
 }
 
+/* واکنش‌گرا برای موبایل */
 @media screen and (max-width: 480px) {
   .site-logo {
     max-width: 140px;
@@ -216,7 +258,7 @@ footer {
   }
 
   .form-section {
-    padding: 15px;
+    padding: 20px;
     max-width: 90%;
   }
 
@@ -228,6 +270,11 @@ footer {
   .form-section button {
     font-size: 0.9em;
     padding: 10px;
+  }
+
+  .back-button a {
+    padding: 8px 16px;
+    font-size: 0.9em;
   }
 
   footer {
