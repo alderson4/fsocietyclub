@@ -11,8 +11,8 @@
 
   <header>
     <div class="auth-bar">
-      <a href="signup.html" class="auth-button">ثبت‌نام</a>
-      <a href="login.html" class="auth-button">ورود</a>
+      <a href="#signup" class="auth-button">ثبت‌نام</a>
+      <a href="#login" class="auth-button">ورود</a>
     </div>
 
     <p class="welcome-text">به باشگاه اف‌سوسایتی خوش آمدید — جایی برای یادگیری، نفوذ، و آزادی دیجیتال</p>
@@ -29,7 +29,6 @@
   </div>
 
   <div class="card-container">
-
     <a href="kali.html" class="card card-click" onclick="delayedNav(event)" data-keywords="کالی,kali,ک,آ,ا">
       <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
       <p class="card-text">آموزش اصول کالی</p>
@@ -39,7 +38,25 @@
       <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
       <p class="card-text">آموزش ابزار Nmap</p>
     </a>
+  </div>
 
+  <div class="form-section" id="signup">
+    <h2>فرم ثبت‌نام</h2>
+    <form>
+      <input type="text" placeholder="نام کاربری">
+      <input type="email" placeholder="ایمیل">
+      <input type="password" placeholder="رمز عبور">
+      <button type="submit">ثبت‌نام</button>
+    </form>
+  </div>
+
+  <div class="form-section" id="login">
+    <h2>فرم ورود</h2>
+    <form>
+      <input type="text" placeholder="نام کاربری یا ایمیل">
+      <input type="password" placeholder="رمز عبور">
+      <button type="submit">ورود</button>
+    </form>
   </div>
 
   <footer>
