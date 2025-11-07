@@ -76,6 +76,25 @@ header {
   font-size: 0.95em;
 }
 
+.favorites-button a {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #0f0;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.favorites-button a:hover {
+  background-color: #fff;
+  color: #0f0;
+  box-shadow: 0 0 20px #0f0;
+}
+
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -178,6 +197,28 @@ header {
   transform: scale(0.97);
 }
 
+.card-actions {
+  margin-top: 10px;
+}
+
+.card-actions button {
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px #0f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-actions button:hover {
+  background-color: #fff;
+  color: #0f0;
+  box-shadow: 0 0 16px #0f0;
+}
+
 .form-section {
   background-color: #111;
   border: 2px solid #0f0;
@@ -278,33 +319,4 @@ footer {
 
   .form-section {
     padding: 20px;
-    max-width: 90%;
-  }
-
-  .form-section input {
-    font-size: 0.9em;
-    padding: 9px;
-    width: 100%;
-  }
-
-  .form-section button {
-    font-size: 0.9em;
-    padding: 9px;
-    width: 100%;
-  }
-
-  .back-button a {
-    padding: 8px 16px;
-    font-size: 0.9em;
-  }
-
-  footer {
-    font-size: 0.8em;
-  }
-
-  .dropdown-content {
-    right: 0;
-    left: auto;
-    top: 45px;
-  }
-}
+    max-width:
