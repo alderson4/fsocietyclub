@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  padding: 10px 20px 0;
+  padding: 60px 20px 0;
   text-align: center;
   position: relative;
 }
@@ -40,10 +40,10 @@ header {
 }
 
 .user-dropdown {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .user-dropdown button {
@@ -301,22 +301,4 @@ footer {
 
 @media screen and (max-width: 480px) {
   .site-logo {
-    max-width: 140px;
-  }
-
-  .auth-button {
-    padding: 6px 12px;
-    font-size: 0.9em;
-  }
-
-  .card-text {
-    font-size: 1.1em;
-  }
-
-  .card {
-    max-width: 90%;
-  }
-
-  .form-section {
-    padding: 20px;
-    max-width:
+    max-width: 140px
