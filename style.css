@@ -1,4 +1,3 @@
-/* فونت و تنظیمات پایه */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
 body {
@@ -10,7 +9,6 @@ body {
   color: #0f0;
 }
 
-/* نوتیفیکیشن گرافیکی بالا */
 .notification-box {
   position: fixed;
   top: 20px;
@@ -26,7 +24,6 @@ body {
   transition: opacity 0.4s ease-in-out;
 }
 
-/* هدر و منوی بالا */
 header {
   padding: 80px 20px 0;
   text-align: center;
@@ -57,7 +54,6 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
-/* منوی حساب کاربری */
 .user-dropdown {
   position: absolute;
   top: 10px;
@@ -95,7 +91,6 @@ header {
   font-size: 0.95em;
 }
 
-/* دکمه علاقه‌مندی‌ها */
 .favorites-button a {
   display: inline-block;
   margin-top: 10px;
@@ -115,7 +110,6 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
-/* دکمه خروج از حساب */
 .logout-button button {
   margin-top: 10px;
   background-color: #f00;
@@ -135,7 +129,6 @@ header {
   box-shadow: 0 0 20px #f00;
 }
 
-/* متن خوش‌آمدگویی و لوگو */
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -156,7 +149,6 @@ header {
   display: block;
 }
 
-/* جستجو */
 .search-box {
   margin: 30px auto;
   max-width: 90%;
@@ -189,7 +181,6 @@ header {
   text-align: right;
 }
 
-/* کارت‌ها */
 .card-container {
   display: flex;
   flex-direction: column;
@@ -270,7 +261,6 @@ header {
   box-shadow: 0 0 16px #0f0;
 }
 
-/* لینک‌ها داخل کارت */
 .card a {
   text-decoration: none;
   color: inherit;
@@ -280,7 +270,6 @@ header {
   color: #0f0;
 }
 
-/* فوتر */
 footer {
   text-align: center;
   padding: 20px;
@@ -290,7 +279,6 @@ footer {
   margin-top: 40px;
 }
 
-/* واکنش‌گرا برای موبایل */
 @media screen and (max-width: 480px) {
   html {
     font-size: 18px;
@@ -316,4 +304,6 @@ footer {
   }
 
   .card {
-    max
+    max-width: 100%;
+  }
+  }
