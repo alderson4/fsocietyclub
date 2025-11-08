@@ -2,6 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>علاقه‌مندی‌ها | fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
@@ -9,42 +10,51 @@
 <body>
 
   <header>
-    <h1 class="welcome-text">علاقه‌مندی‌های من</h1>
+    <div class="auth-bar" id="authBar">
+      <a href="index.html" class="auth-button">صفحه اصلی</a>
+      <a href="courses.html" class="auth-button">دوره‌ها</a>
+    </div>
+
+    <p class="welcome-text">دوره‌های مورد علاقه شما</p>
+
+    <div class="logo-box">
+      <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
+    </div>
   </header>
 
-  <div class="card-container" id="favoritesList"></div>
-
-  <div class="back-button">
-    <a href="index.html">🔙 بازگشت به صفحه اصلی</a>
+  <div class="card-container" id="favoritesContainer">
+    <!-- کارت‌های علاقه‌مندی‌ها اینجا اضافه می‌شن -->
   </div>
 
+  <footer>
+    <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
+  </footer>
+
   <script>
-    const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
-    const container = document.getElementById("favoritesList");
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const container = document.getElementById('favoritesContainer');
 
     if (favorites.length === 0) {
-      container.innerHTML = "<p class='welcome-text'>هیچ آیتمی در علاقه‌مندی‌ها نیست.</p>";
+      container.innerHTML = `
+        <div class="card">
+          <p class="card-text">هنوز هیچ دوره‌ای به علاقه‌مندی‌ها اضافه نشده</p>
+          <p class="card-date">برای افزودن دوره، از دکمه ❤️ در صفحه دوره‌ها استفاده کنید</p>
+        </div>
+      `;
     } else {
-      favorites.forEach(link => {
-        const card = document.createElement("div");
-        card.className = "card";
+      favorites.forEach(course => {
+        const card = document.createElement('div');
+        card.className = 'card card-click';
         card.innerHTML = `
-          <a href="${link}" target="_blank" class="card-text">${link}</a>
-          <div class="card-actions">
-            <button onclick="removeFavorite('${link}')">🚫 حذف</button>
-          </div>
+          <a href="${course.link}">
+            <img src="${course.image}" alt="${course.title}" class="card-image">
+            <p class="card-text">${course.title}</p>
+            <p class="card-date">تاریخ انتشار: ${course.date}</p>
+          </a>
         `;
         container.appendChild(card);
       });
     }
-
-    function removeFavorite(link) {
-      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
-      favorites = favorites.filter(item => item !== link);
-      localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
-      location.reload();
-    }
   </script>
-
 </body>
 </html>
