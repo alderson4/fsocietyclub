@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>علاقه‌مندی‌ها | fsocietyclub</title>
-  <link rel="stylesheet" href="favorites.css">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h1>علاقه‌مندی‌های من</h1>
-  <div id="favoritesList"></div>
+  <header>
+    <h1 class="welcome-text">علاقه‌مندی‌های من</h1>
+  </header>
+
+  <div class="card-container" id="favoritesList"></div>
 
   <div class="back-button">
-    <a href="index.html">بازگشت به صفحه اصلی</a>
+    <a href="index.html">🔙 بازگشت به صفحه اصلی</a>
   </div>
 
   <script>
@@ -20,16 +23,18 @@
     const container = document.getElementById("favoritesList");
 
     if (favorites.length === 0) {
-      container.innerHTML = "<p>هیچ آیتمی در علاقه‌مندی‌ها نیست.</p>";
+      container.innerHTML = "<p class='welcome-text'>هیچ آیتمی در علاقه‌مندی‌ها نیست.</p>";
     } else {
       favorites.forEach(link => {
-        const item = document.createElement("div");
-        item.className = "favorite-item";
-        item.innerHTML = `
-          <a href="${link}" target="_blank">${link}</a>
-          <button onclick="removeFavorite('${link}')">🚫 حذف</button>
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <a href="${link}" target="_blank" class="card-text">${link}</a>
+          <div class="card-actions">
+            <button onclick="removeFavorite('${link}')">🚫 حذف</button>
+          </div>
         `;
-        container.appendChild(item);
+        container.appendChild(card);
       });
     }
 
