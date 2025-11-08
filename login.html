@@ -1,4 +1,4 @@
-<!D<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
@@ -8,28 +8,50 @@
 </head>
 <body>
 
-  <div class="form-section">
+  <div id="notification" class="notification-box" style="display: none;"></div>
+
+  <div class="form-box">
     <h2>فرم ورود</h2>
     <input type="text" id="username" placeholder="نام کاربری">
     <input type="password" id="password" placeholder="رمز عبور">
     <button onclick="login()">ورود</button>
-
-    <div class="back-button">
-      <a href="index.html">بازگشت</a>
+    <div class="back-button" style="text-align:center; margin-top:15px;">
+      <a href="index.html" class="auth-button">بازگشت</a>
     </div>
   </div>
 
   <script>
+    function showNotification(message) {
+      const box = document.getElementById("notification");
+      if (!box) return;
+      box.innerText = message;
+      box.style.display = "block";
+      box.style.opacity = "1";
+      setTimeout(() => {
+        box.style.opacity = "0";
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 400);
+      }, 3000);
+    }
+
     function login() {
       const inputUser = document.getElementById("username").value;
       const inputPass = document.getElementById("password").value;
       const saved = JSON.parse(localStorage.getItem("fsociety_user"));
 
+      if (!inputUser || !inputPass) {
+        showNotification("⚠️ لطفاً نام کاربری و رمز عبور را وارد کنید.");
+        return;
+      }
+
       if (saved && saved.username === inputUser && saved.password === inputPass) {
-        alert("ورود موفقیت‌آمیز بود!");
-        window.location.href = "index.html";
+        showNotification("✅ ورود موفقیت‌آمیز بود!");
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1500);
       } else {
-        alert("نام کاربری یا رمز عبور اشتباه است.");
+        showNotification("❌ نام کاربری یا رمز عبور اشتباه است.");
       }
     }
   </script>
