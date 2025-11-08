@@ -1,3 +1,21 @@
+// نمایش نوتیفیکیشن گرافیکی بالا
+function showNotification(message) {
+  const box = document.getElementById("notification");
+  if (!box) return;
+
+  box.innerText = message;
+  box.style.display = "block";
+  box.style.opacity = "1";
+
+  setTimeout(() => {
+    box.style.opacity = "0";
+    setTimeout(() => {
+      box.style.display = "none";
+    }, 400);
+  }, 3000);
+}
+
+// بارگذاری اطلاعات کاربر
 function loadUserInfo() {
   const user = JSON.parse(localStorage.getItem("fsociety_user"));
   const authBar = document.getElementById("authBar");
@@ -23,11 +41,13 @@ function loadUserInfo() {
   }
 }
 
+// باز و بسته کردن منوی کاربری
 function toggleDropdown() {
   const dropdown = document.getElementById("dropdown-content");
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
+// فیلتر کارت‌ها بر اساس جستجو
 function filterCards() {
   const input = document.getElementById("searchInput").value.toLowerCase().trim();
   const cards = document.querySelectorAll(".card");
@@ -43,10 +63,11 @@ function filterCards() {
   });
 }
 
+// افزودن آیتم به علاقه‌مندی‌ها با نوتیفیکیشن
 function addToFavorites(link) {
   const user = JSON.parse(localStorage.getItem("fsociety_user"));
   if (!user || !user.username || !user.email || !user.password) {
-    alert("برای افزودن به علاقه‌مندی‌ها ابتدا ثبت‌نام کنید.");
+    showNotification("⚠️ برای افزودن به علاقه‌مندی‌ها ابتدا ثبت‌نام کنید.");
     return;
   }
 
@@ -54,16 +75,18 @@ function addToFavorites(link) {
   if (!favorites.includes(link)) {
     favorites.push(link);
     localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
-    alert("آیتم به علاقه‌مندی‌ها افزوده شد!");
+    showNotification("✅ آیتم به علاقه‌مندی‌ها افزوده شد!");
   } else {
-    alert("این آیتم قبلاً در علاقه‌مندی‌ها بوده.");
+    showNotification("⚠️ این آیتم قبلاً در علاقه‌مندی‌ها بوده.");
   }
 }
 
+// خروج از حساب کاربری
 function logoutUser() {
   localStorage.removeItem("fsociety_user");
   localStorage.removeItem("fsociety_favorites");
   window.location.href = "index.html";
 }
 
+// اجرای بارگذاری هنگام ورود
 window.onload = loadUserInfo;
