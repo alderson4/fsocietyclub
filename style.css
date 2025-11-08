@@ -91,7 +91,8 @@ header {
   font-size: 0.95em;
 }
 
-.favorites-button a {
+.favorites-button a,
+.logout-button button {
   display: inline-block;
   margin-top: 10px;
   background-color: #0f0;
@@ -104,23 +105,10 @@ header {
   transition: all 0.3s ease-in-out;
 }
 
-.favorites-button a:hover {
-  background-color: #fff;
-  color: #0f0;
-  box-shadow: 0 0 20px #0f0;
-}
-
 .logout-button button {
-  margin-top: 10px;
   background-color: #f00;
   color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
   box-shadow: 0 0 10px #f00;
-  transition: all 0.3s ease-in-out;
 }
 
 .logout-button button:hover {
@@ -231,14 +219,6 @@ header {
   text-shadow: 0 0 6px #0f0;
 }
 
-.card-click {
-  transition: transform 0.3s ease-in-out;
-}
-
-.card-click:active {
-  transform: scale(0.97);
-}
-
 .card-actions {
   margin-top: 10px;
 }
@@ -261,15 +241,6 @@ header {
   box-shadow: 0 0 16px #0f0;
 }
 
-.card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card a:visited {
-  color: #0f0;
-}
-
 footer {
   text-align: center;
   padding: 20px;
@@ -279,31 +250,52 @@ footer {
   margin-top: 40px;
 }
 
-@media screen and (max-width: 480px) {
-  html {
-    font-size: 18px;
-  }
+/* فرم‌های ورود و ثبت‌نام */
+.form-box {
+  max-width: 360px;
+  margin: 40px auto;
+  background-color: #111;
+  border: 2px solid #0f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px #0f0;
+}
 
-  .site-logo {
-    max-width: 140px;
-  }
+.form-box h2 {
+  text-align: center;
+  color: #0f0;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px #0f0;
+}
 
-  .auth-button,
-  .user-dropdown button,
-  .card-actions button {
-    font-size: 1em;
-    padding: 10px 18px;
-  }
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  background-color: #000;
+  border: 1px solid #0f0;
+  border-radius: 8px;
+  color: #0f0;
+  font-size: 1em;
+  box-shadow: 0 0 8px #0f0;
+}
 
-  .card-text {
-    font-size: 1.2em;
-  }
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0f0;
+  transition: all 0.3s ease-in-out;
+}
 
-  .card-date {
-    font-size: 1em;
-  }
-
-  .card {
-    max-width: 100%;
-  }
-  }
+.form-box button:hover {
+  background-color: #fff;
+  color: #0f0;
+  box-shadow: 0 0
