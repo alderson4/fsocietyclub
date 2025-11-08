@@ -8,28 +8,49 @@
 </head>
 <body>
 
-  <div class="form-section">
+  <div id="notification" class="notification-box" style="display: none;"></div>
+
+  <div class="form-box">
     <h2>فرم ثبت‌نام</h2>
     <input type="text" id="username" placeholder="نام کاربری">
     <input type="email" id="email" placeholder="ایمیل">
     <input type="password" id="password" placeholder="رمز عبور">
     <button onclick="register()">ثبت‌نام</button>
-
-    <div class="back-button">
-      <a href="index.html">بازگشت</a>
+    <div class="back-button" style="text-align:center; margin-top:15px;">
+      <a href="index.html" class="auth-button">بازگشت</a>
     </div>
   </div>
 
   <script>
+    function showNotification(message) {
+      const box = document.getElementById("notification");
+      if (!box) return;
+      box.innerText = message;
+      box.style.display = "block";
+      box.style.opacity = "1";
+      setTimeout(() => {
+        box.style.opacity = "0";
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 400);
+      }, 3000);
+    }
+
     function register() {
       const user = {
         username: document.getElementById("username").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
       };
+      if (!user.username || !user.email || !user.password) {
+        showNotification("⚠️ لطفاً همه فیلدها را پر کنید.");
+        return;
+      }
       localStorage.setItem("fsociety_user", JSON.stringify(user));
-      alert("ثبت‌نام با موفقیت انجام شد!");
-      window.location.href = "index.html";
+      showNotification("✅ ثبت‌نام با موفقیت انجام شد!");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
     }
   </script>
 
