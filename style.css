@@ -1,3 +1,4 @@
+/* فونت و تنظیمات پایه */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
 body {
@@ -9,6 +10,7 @@ body {
   color: #0f0;
 }
 
+/* هدر و منوی بالا */
 header {
   padding: 80px 20px 0;
   text-align: center;
@@ -39,6 +41,7 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
+/* منوی حساب کاربری */
 .user-dropdown {
   position: absolute;
   top: 10px;
@@ -76,6 +79,7 @@ header {
   font-size: 0.95em;
 }
 
+/* دکمه علاقه‌مندی‌ها */
 .favorites-button a {
   display: inline-block;
   margin-top: 10px;
@@ -95,6 +99,7 @@ header {
   box-shadow: 0 0 20px #0f0;
 }
 
+/* دکمه خروج از حساب */
 .logout-button button {
   margin-top: 10px;
   background-color: #f00;
@@ -114,6 +119,7 @@ header {
   box-shadow: 0 0 20px #f00;
 }
 
+/* متن خوش‌آمدگویی و لوگو */
 .welcome-text {
   color: #0f0;
   font-size: 1em;
@@ -134,6 +140,7 @@ header {
   display: block;
 }
 
+/* جستجو */
 .search-box {
   margin: 30px auto;
   max-width: 90%;
@@ -166,6 +173,7 @@ header {
   text-align: right;
 }
 
+/* کارت‌ها */
 .card-container {
   display: flex;
   flex-direction: column;
@@ -238,6 +246,7 @@ header {
   box-shadow: 0 0 16px #0f0;
 }
 
+/* لینک‌ها داخل کارت */
 .card a {
   text-decoration: none;
   color: inherit;
@@ -247,70 +256,32 @@ header {
   color: #0f0;
 }
 
-.form-section {
-  background-color: #111;
-  border: 2px solid #0f0;
-  border-radius: 12px;
-  padding: 25px 18px;
-  margin: 40px auto;
-  max-width: 360px;
-  box-shadow: 0 0 20px #0f0;
+/* فوتر */
+footer {
   text-align: center;
-}
-
-.form-section h2 {
+  padding: 20px;
   color: #0f0;
-  font-size: 1.3em;
-  margin-bottom: 20px;
-  text-shadow: 0 0 8px #0f0;
+  font-size: 0.9em;
+  border-top: 1px solid #0f0;
+  margin-top: 40px;
 }
 
-.form-section input {
-  width: 95%;
-  padding: 10px;
-  margin-bottom: 14px;
-  border: 1px solid #0f0;
-  border-radius: 8px;
-  background-color: #000;
-  color: #0f0;
-  font-size: 0.95em;
-}
+/* واکنش‌گرا برای موبایل */
+@media screen and (max-width: 480px) {
+  .site-logo {
+    max-width: 140px;
+  }
 
-.form-section button {
-  width: 95%;
-  padding: 10px;
-  background-color: #0f0;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 0 10px #0f0;
-  transition: all 0.3s ease-in-out;
-}
+  .auth-button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
 
-.form-section button:hover {
-  background-color: #fff;
-  color: #0f0;
-  box-shadow: 0 0 20px #0f0;
-}
+  .card-text {
+    font-size: 1.1em;
+  }
 
-.back-button {
-  margin-top: 20px;
-  text-align: center;
+  .card {
+    max-width: 90%;
+  }
 }
-
-.back-button a {
-  background-color: #0f0;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 0 10px #0f0;
-  transition: all 0.3s ease-in-out;
-}
-
-.back-button a:hover {
-  background-color: #fff;
