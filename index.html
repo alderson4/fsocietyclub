@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fsocietyclub</title>
+  <title>علاقه‌مندی‌ها | fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -13,8 +13,8 @@
 
   <header>
     <div class="auth-bar" id="authBar">
-      <a href="signup.html" class="auth-button">ثبت‌نام</a>
-      <a href="login.html" class="auth-button">ورود</a>
+      <a href="index.html" class="auth-button">صفحه اصلی</a>
+      <a href="courses.html" class="auth-button">دوره‌ها</a>
     </div>
 
     <div class="user-dropdown" id="userDropdown" style="display: none;">
@@ -22,58 +22,114 @@
       <div id="dropdown-content" class="dropdown-content"></div>
     </div>
 
-    <p class="welcome-text">به باشگاه اف‌سوسایتی خوش آمدید — جایی برای یادگیری، نفوذ، و آزادی دیجیتال</p>
+    <p class="welcome-text">دوره‌های مورد علاقه شما</p>
 
     <div class="logo-box">
       <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
     </div>
   </header>
 
-  <div class="search-box">
-    <div class="search-wrapper">
-      <input type="text" placeholder="جستجو..." id="searchInput" oninput="filterCards()">
-    </div>
-  </div>
-
-  <div class="card-container">
-    <div class="card card-click" data-keywords="کالی,kali,ک,آ,ا">
-      <a href="kali.html">
-        <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
-        <p class="card-text">آموزش اصول کالی</p>
-        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
-      </a>
-      <div class="card-actions">
-        <button onclick="addToFavorites('kali.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
-      </div>
-    </div>
-
-    <div class="card card-click" data-keywords="nmap,انمپ,ن,ا,آ,امنیت">
-      <a href="security.html">
-        <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
-        <p class="card-text">آموزش ابزار Nmap</p>
-        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
-      </a>
-      <div class="card-actions">
-        <button onclick="addToFavorites('security.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
-      </div>
-    </div>
-
-    <div class="card card-click" data-keywords="فیشینگ,phishing,حمله">
-      <a href="phishing.html">
-        <img src="phishing.jpg" alt="Phishing" class="card-image">
-        <p class="card-text">آموزش فیشینگ</p>
-        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
-      </a>
-      <div class="card-actions">
-        <button onclick="addToFavorites('phishing.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
-      </div>
-    </div>
-  </div>
+  <div class="card-container" id="favoritesContainer"></div>
 
   <footer>
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function showNotification(message) {
+      const box = document.getElementById("notification");
+      if (!box) return;
+      box.innerText = message;
+      box.style.display = "block";
+      box.style.opacity = "1";
+      setTimeout(() => {
+        box.style.opacity = "0";
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 400);
+      }, 3000);
+    }
+
+    function loadUserInfo() {
+      const user = JSON.parse(localStorage.getItem("fsociety_user"));
+      const authBar = document.getElementById("authBar");
+      const userDropdown = document.getElementById("userDropdown");
+      const dropdownContent = document.getElementById("dropdown-content");
+
+      if (user && user.username && user.email && user.password) {
+        if (authBar) authBar.style.display = "none";
+        if (userDropdown) userDropdown.style.display = "block";
+        if (dropdownContent) {
+          dropdownContent.innerHTML = `
+            <p>نام کاربری: ${user.username}</p>
+            <p>ایمیل: ${user.email}</p>
+            <p>رمز عبور: ${user.password}</p>
+            <div class="favorites-button">
+              <a href="favorites.html">رفتن به علاقه‌مندی‌ها</a>
+            </div>
+            <div class="logout-button">
+              <button onclick="logoutUser()">🚪 خروج از حساب کاربری</button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("fsociety_user");
+      localStorage.removeItem("fsociety_favorites");
+      window.location.href = "index.html";
+    }
+
+    function removeFavorite(link) {
+      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+      favorites = favorites.filter(f => f.link !== link);
+      localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
+      showNotification("❌ آیتم حذف شد");
+      loadFavorites();
+    }
+
+    function loadFavorites() {
+      const container = document.getElementById("favoritesContainer");
+      container.innerHTML = "";
+      const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+
+      if (favorites.length === 0) {
+        container.innerHTML = `
+          <div class="card">
+            <p class="card-text">هنوز هیچ دوره‌ای به علاقه‌مندی‌ها اضافه نشده</p>
+            <p class="card-date">برای افزودن دوره، از دکمه ❤️ در صفحه دوره‌ها استفاده کنید</p>
+          </div>
+        `;
+        return;
+      }
+
+      favorites.forEach(course => {
+        const card = document.createElement("div");
+        card.className = "card card-click";
+        card.innerHTML = `
+          <a href="${course.link}">
+            <img src="${course.image}" alt="${course.title}" class="card-image">
+            <p class="card-text">${course.title}</p>
+            <p class="card-date">تاریخ انتشار: ${course.date}</p>
+          </a>
+          <div class="card-actions">
+            <button onclick="removeFavorite('${course.link}')">🗑️ حذف از علاقه‌مندی‌ها</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    window.onload = function () {
+      loadUserInfo();
+      loadFavorites();
+    };
+  </script>
 </body>
 </html>
