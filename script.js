@@ -60,9 +60,15 @@ function addToFavorites(link) {
     return;
   }
 
+  const card = event.target.closest(".card");
+  const title = card.querySelector(".card-text").innerText;
+  const image = card.querySelector(".card-image").getAttribute("src");
+  const date = card.querySelector(".card-date")?.innerText.split(": ")[1] || "نامشخص";
+
   let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
-  if (!favorites.includes(link)) {
-    favorites.push(link);
+
+  if (!favorites.some(f => f.link === link)) {
+    favorites.push({ link, title, image, date });
     localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
     showNotification("✅ آیتم به علاقه‌مندی‌ها افزوده شد!");
   } else {
@@ -76,4 +82,37 @@ function logoutUser() {
   window.location.href = "index.html";
 }
 
-window.onload = loadUserInfo;
+function loadFavorites() {
+  const container = document.getElementById("favoritesContainer");
+  const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+
+  if (favorites.length === 0) {
+    container.innerHTML = `
+      <div class="card">
+        <p class="card-text">هنوز هیچ دوره‌ای به علاقه‌مندی‌ها اضافه نشده</p>
+        <p class="card-date">برای افزودن دوره، از دکمه ❤️ در صفحه دوره‌ها استفاده کنید</p>
+      </div>
+    `;
+    return;
+  }
+
+  favorites.forEach(course => {
+    const card = document.createElement("div");
+    card.className = "card card-click";
+    card.innerHTML = `
+      <a href="${course.link}">
+        <img src="${course.image}" alt="${course.title}" class="card-image">
+        <p class="card-text">${course.title}</p>
+        <p class="card-date">تاریخ انتشار: ${course.date}</p>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+window.onload = function () {
+  loadUserInfo();
+  if (document.getElementById("favoritesContainer")) {
+    loadFavorites();
+  }
+};
