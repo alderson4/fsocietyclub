@@ -86,8 +86,17 @@
       window.location.href = "index.html";
     }
 
+    function removeFavorite(link) {
+      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+      favorites = favorites.filter(f => f.link !== link);
+      localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
+      showNotification("❌ آیتم حذف شد");
+      loadFavorites();
+    }
+
     function loadFavorites() {
       const container = document.getElementById("favoritesContainer");
+      container.innerHTML = "";
       const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
 
       if (favorites.length === 0) {
@@ -104,11 +113,13 @@
         const card = document.createElement("div");
         card.className = "card card-click";
         card.innerHTML = `
-          <a href="${course.link}">
-            <img src="${course.image}" alt="${course.title}" class="card-image">
-            <p class="card-text">${course.title}</p>
-            <p class="card-date">تاریخ انتشار: ${course.date}</p>
-          </a>
+          <img src="${course.image}" alt="${course.title}" class="card-image">
+          <p class="card-text">${course.title}</p>
+          <p class="card-date">تاریخ انتشار: ${course.date}</p>
+          <div class="card-actions">
+            <a href="${course.link}" class="auth-button">مشاهده دوره</a>
+            <button onclick="removeFavorite('${course.link}')">🗑️ حذف</button>
+          </div>
         `;
         container.appendChild(card);
       });
