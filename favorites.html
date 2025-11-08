@@ -9,10 +9,17 @@
 </head>
 <body>
 
+  <div id="notification" class="notification-box" style="display: none;"></div>
+
   <header>
     <div class="auth-bar" id="authBar">
       <a href="index.html" class="auth-button">صفحه اصلی</a>
       <a href="courses.html" class="auth-button">دوره‌ها</a>
+    </div>
+
+    <div class="user-dropdown" id="userDropdown" style="display: none;">
+      <button onclick="toggleDropdown()">👤 حساب من</button>
+      <div id="dropdown-content" class="dropdown-content"></div>
     </div>
 
     <p class="welcome-text">دوره‌های مورد علاقه شما</p>
@@ -22,29 +29,80 @@
     </div>
   </header>
 
-  <div class="card-container" id="favoritesContainer">
-    <!-- کارت‌های علاقه‌مندی‌ها اینجا اضافه می‌شن -->
-  </div>
+  <div class="card-container" id="favoritesContainer"></div>
 
   <footer>
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
 
   <script>
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const container = document.getElementById('favoritesContainer');
+    function showNotification(message) {
+      const box = document.getElementById("notification");
+      if (!box) return;
+      box.innerText = message;
+      box.style.display = "block";
+      box.style.opacity = "1";
+      setTimeout(() => {
+        box.style.opacity = "0";
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 400);
+      }, 3000);
+    }
 
-    if (favorites.length === 0) {
-      container.innerHTML = `
-        <div class="card">
-          <p class="card-text">هنوز هیچ دوره‌ای به علاقه‌مندی‌ها اضافه نشده</p>
-          <p class="card-date">برای افزودن دوره، از دکمه ❤️ در صفحه دوره‌ها استفاده کنید</p>
-        </div>
-      `;
-    } else {
+    function loadUserInfo() {
+      const user = JSON.parse(localStorage.getItem("fsociety_user"));
+      const authBar = document.getElementById("authBar");
+      const userDropdown = document.getElementById("userDropdown");
+      const dropdownContent = document.getElementById("dropdown-content");
+
+      if (user && user.username && user.email && user.password) {
+        if (authBar) authBar.style.display = "none";
+        if (userDropdown) userDropdown.style.display = "block";
+        if (dropdownContent) {
+          dropdownContent.innerHTML = `
+            <p>نام کاربری: ${user.username}</p>
+            <p>ایمیل: ${user.email}</p>
+            <p>رمز عبور: ${user.password}</p>
+            <div class="favorites-button">
+              <a href="favorites.html">رفتن به علاقه‌مندی‌ها</a>
+            </div>
+            <div class="logout-button">
+              <button onclick="logoutUser()">🚪 خروج از حساب کاربری</button>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("fsociety_user");
+      localStorage.removeItem("fsociety_favorites");
+      window.location.href = "index.html";
+    }
+
+    function loadFavorites() {
+      const container = document.getElementById("favoritesContainer");
+      const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+
+      if (favorites.length === 0) {
+        container.innerHTML = `
+          <div class="card">
+            <p class="card-text">هنوز هیچ دوره‌ای به علاقه‌مندی‌ها اضافه نشده</p>
+            <p class="card-date">برای افزودن دوره، از دکمه ❤️ در صفحه دوره‌ها استفاده کنید</p>
+          </div>
+        `;
+        return;
+      }
+
       favorites.forEach(course => {
-        const card = document.createElement('div');
-        card.className = 'card card-click';
+        const card = document.createElement("div");
+        card.className = "card card-click";
         card.innerHTML = `
           <a href="${course.link}">
             <img src="${course.image}" alt="${course.title}" class="card-image">
@@ -55,6 +113,11 @@
         container.appendChild(card);
       });
     }
+
+    window.onload = function () {
+      loadUserInfo();
+      loadFavorites();
+    };
   </script>
 </body>
 </html>
