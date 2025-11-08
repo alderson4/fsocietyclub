@@ -76,14 +76,18 @@ function addToFavorites(link) {
   }
 }
 
-function logoutUser() {
-  localStorage.removeItem("fsociety_user");
-  localStorage.removeItem("fsociety_favorites");
-  window.location.href = "index.html";
+function removeFavorite(link) {
+  let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+  favorites = favorites.filter(f => f.link !== link);
+  localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
+  showNotification("❌ آیتم حذف شد");
+  loadFavorites();
 }
 
 function loadFavorites() {
   const container = document.getElementById("favoritesContainer");
+  if (!container) return;
+  container.innerHTML = "";
   const favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
 
   if (favorites.length === 0) {
@@ -99,15 +103,33 @@ function loadFavorites() {
   favorites.forEach(course => {
     const card = document.createElement("div");
     card.className = "card card-click";
+    card.setAttribute("data-link", course.link);
     card.innerHTML = `
-      <a href="${course.link}">
-        <img src="${course.image}" alt="${course.title}" class="card-image">
-        <p class="card-text">${course.title}</p>
-        <p class="card-date">تاریخ انتشار: ${course.date}</p>
-      </a>
+      <img src="${course.image}" alt="${course.title}" class="card-image">
+      <p class="card-text">${course.title}</p>
+      <p class="card-date">تاریخ انتشار: ${course.date}</p>
+      <div class="card-actions">
+        <a href="${course.link}" class="auth-button">مشاهده دوره</a>
+        <button class="remove-btn">🗑️ حذف</button>
+      </div>
     `;
     container.appendChild(card);
   });
+
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const card = e.target.closest(".card");
+      const link = card.getAttribute("data-link");
+      removeFavorite(link);
+    });
+  });
+}
+
+function logoutUser() {
+  localStorage.removeItem("fsociety_user");
+  localStorage.removeItem("fsociety_favorites");
+  window.location.href = "index.html";
 }
 
 window.onload = function () {
