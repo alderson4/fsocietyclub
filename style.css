@@ -216,6 +216,13 @@ header {
   margin: 0;
 }
 
+.card-date {
+  color: #0f0;
+  font-size: 0.85em;
+  margin-top: 6px;
+  text-shadow: 0 0 6px #0f0;
+}
+
 .card-click {
   transition: transform 0.3s ease-in-out;
 }
@@ -284,4 +291,4 @@ footer {
   .card {
     max-width: 90%;
   }
-}
+  }
