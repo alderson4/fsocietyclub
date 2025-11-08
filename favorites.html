@@ -2,18 +2,17 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>علاقه‌مندی‌ها</title>
-  <link rel="stylesheet" href="style.css">
+  <title>علاقه‌مندی‌ها | fsocietyclub</title>
+  <link rel="stylesheet" href="favorites.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="form-section">
-    <h2>علاقه‌مندی‌های من</h2>
-    <div id="favoritesList"></div>
-    <div class="back-button">
-      <a href="index.html">بازگشت به صفحه اصلی</a>
-    </div>
+  <h1>علاقه‌مندی‌های من</h1>
+  <div id="favoritesList"></div>
+
+  <div class="back-button">
+    <a href="index.html">بازگشت به صفحه اصلی</a>
   </div>
 
   <script>
@@ -21,13 +20,24 @@
     const container = document.getElementById("favoritesList");
 
     if (favorites.length === 0) {
-      container.innerHTML = "<p>هنوز هیچ آیتمی به علاقه‌مندی‌ها اضافه نشده.</p>";
+      container.innerHTML = "<p>هیچ آیتمی در علاقه‌مندی‌ها نیست.</p>";
     } else {
       favorites.forEach(link => {
-        const item = document.createElement("p");
-        item.innerHTML = `<a href="${link}" style="color:#0f0;">${link}</a>`;
+        const item = document.createElement("div");
+        item.className = "favorite-item";
+        item.innerHTML = `
+          <a href="${link}" target="_blank">${link}</a>
+          <button onclick="removeFavorite('${link}')">🚫 حذف</button>
+        `;
         container.appendChild(item);
       });
+    }
+
+    function removeFavorite(link) {
+      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+      favorites = favorites.filter(item => item !== link);
+      localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
+      location.reload();
     }
   </script>
 
