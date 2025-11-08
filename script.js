@@ -1,12 +1,9 @@
-// نمایش نوتیفیکیشن گرافیکی بالا
 function showNotification(message) {
   const box = document.getElementById("notification");
   if (!box) return;
-
   box.innerText = message;
   box.style.display = "block";
   box.style.opacity = "1";
-
   setTimeout(() => {
     box.style.opacity = "0";
     setTimeout(() => {
@@ -15,7 +12,6 @@ function showNotification(message) {
   }, 3000);
 }
 
-// بارگذاری اطلاعات کاربر
 function loadUserInfo() {
   const user = JSON.parse(localStorage.getItem("fsociety_user"));
   const authBar = document.getElementById("authBar");
@@ -41,13 +37,11 @@ function loadUserInfo() {
   }
 }
 
-// باز و بسته کردن منوی کاربری
 function toggleDropdown() {
   const dropdown = document.getElementById("dropdown-content");
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-// فیلتر کارت‌ها بر اساس جستجو
 function filterCards() {
   const input = document.getElementById("searchInput").value.toLowerCase().trim();
   const cards = document.querySelectorAll(".card");
@@ -55,15 +49,10 @@ function filterCards() {
   cards.forEach(card => {
     const text = card.innerText.toLowerCase();
     const keywords = card.getAttribute("data-keywords")?.toLowerCase() || "";
-    if (text.includes(input) || keywords.includes(input)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = (text.includes(input) || keywords.includes(input)) ? "block" : "none";
   });
 }
 
-// افزودن آیتم به علاقه‌مندی‌ها با نوتیفیکیشن
 function addToFavorites(link) {
   const user = JSON.parse(localStorage.getItem("fsociety_user"));
   if (!user || !user.username || !user.email || !user.password) {
@@ -81,12 +70,10 @@ function addToFavorites(link) {
   }
 }
 
-// خروج از حساب کاربری
 function logoutUser() {
   localStorage.removeItem("fsociety_user");
   localStorage.removeItem("fsociety_favorites");
   window.location.href = "index.html";
 }
 
-// اجرای بارگذاری هنگام ورود
 window.onload = loadUserInfo;
