@@ -3,20 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ابزار فیشینگ 2025 | fsocietyclub</title>
+  <title>آموزش اصول شبکه</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>ابزار فیشینگ 2025</h1>
+    <div class="auth-bar">
+      <a href="index.html" class="auth-button">صفحه اصلی</a>
+      <a href="courses.html" class="auth-button">دوره‌ها</a>
+    </div>
+    <p class="welcome-text">آموزش اصول شبکه</p>
+    <div class="logo-box">
+      <img src="network-logo.jpg" alt="network logo" class="site-logo">
+    </div>
   </header>
 
   <main>
     <section class="lesson">
-      <h2>مرحله اول: شناخت فیشینگ</h2>
-      <p>در این بخش با مفهوم فیشینگ، انواع حملات مثل ایمیل جعلی و صفحات تقلبی آشنا می‌شویم.</p>
+      <h2>مقدمه</h2>
+      <p>شبکه مجموعه‌ای از دستگاه‌هاست که برای تبادل داده به هم متصل شده‌اند. این ارتباط می‌تواند محلی یا جهانی باشد.</p>
     </section>
 
     <section class="lesson">
-      <h2>مرحله دوم: ابزارهای فیشینگ جدید</h2>
-      <p>ابزارهای جدید سال 2025 مثل ZPhisher و BlackEye
+      <h2>انواع شبکه‌ها</h2>
+      <p>شبکه‌ها به انواع LAN، WAN، MAN و PAN تقسیم می‌شوند. هر کدام کاربرد خاصی در محیط‌های مختلف دارند.</p>
+    </section>
+
+    <section class="lesson">
+      <h2>IP و Subnet</h2>
+      <p>آدرس IP شناسه‌ی عددی هر دستگاه در شبکه است. Subnet برای تقسیم شبکه به بخش‌های کوچکتر استفاده می‌شود.</p>
+    </section>
+
+    <section class="lesson">
+      <h2>ابزارهای شبکه</h2>
+      <p>ابزارهایی مثل Wireshark، Nmap، Netcat و ipconfig برای تحلیل و مدیریت شبکه استفاده می‌شوند.</p>
+    </section>
+
+    <section class="lesson">
+      <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۲۱</p>
+      <div class="card-actions">
+        <button onclick="addToFavorites('network.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
+  </footer>
+
+  <script>
+    function addToFavorites(link) {
+      const user = JSON.parse(localStorage.getItem("fsociety_user"));
+      if (!user || !user.username || !user.email || !user.password) {
+        alert("برای افزودن به علاقه‌مندی‌ها ابتدا ثبت‌نام کنید.");
+        return;
+      }
+
+      const title = "آموزش اصول شبکه";
+      const image = "network-logo.jpg";
+      const date = "۱۴۰۴/۰۸/۲۱";
+
+      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
+
+      if (!favorites.some(f => f.link === link)) {
+        favorites.push({ link, title, image, date });
+        localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
+        alert("آیتم به علاقه‌مندی‌ها افزوده شد!");
+      } else {
+        alert("این آیتم قبلاً اضافه شده.");
+      }
+    }
+  </script>
+
+</body>
+</html>
