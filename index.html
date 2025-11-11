@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fsocietyclub | صفحه اصلی</title>
+  <title>fsocietyclub</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +22,7 @@
       <div id="dropdown-content" class="dropdown-content"></div>
     </div>
 
-    <p class="welcome-text">به fsocietyclub خوش آمدید</p>
+    <p class="welcome-text">به باشگاه اف‌سوسایتی خوش آمدید — جایی برای یادگیری، نفوذ، و آزادی دیجیتال</p>
 
     <div class="logo-box">
       <img src="image_1762245500463.jpg" alt="fsocietyclub logo" class="site-logo">
@@ -30,28 +31,41 @@
 
   <div class="search-box">
     <div class="search-wrapper">
-      <input type="text" id="searchInput" placeholder="جستجو در دوره‌ها..." oninput="filterCards()">
+      <input type="text" placeholder="جستجو..." id="searchInput" oninput="filterCards()">
     </div>
   </div>
 
   <div class="card-container">
-    <div class="card card-click" data-keywords="کالی لینوکس امنیت تست نفوذ">
-      <img src="copilot_image_1762281337449.jpeg" alt="کالی" class="card-image">
-      <p class="card-text">آموزش کالی لینوکس</p>
-      <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
+    <div class="card card-click" data-keywords="کالی,kali,ک,آ,ا">
+      <a href="kali.html">
+        <img src="copilot_image_1762281337449.jpeg" alt="آموزش کالی" class="card-image">
+        <p class="card-text">آموزش اصول کالی</p>
+        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
+      </a>
       <div class="card-actions">
-        <a href="kali.html" class="auth-button">مشاهده دوره</a>
-        <button onclick="addToFavorites('kali.html')">❤️ افزودن</button>
+        <button onclick="addToFavorites('kali.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
       </div>
     </div>
 
-    <div class="card card-click" data-keywords="شبکه ip وایرشارک nmap">
-      <img src="network-logo.jpg" alt="شبکه" class="card-image">
-      <p class="card-text">آموزش شبکه</p>
-      <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۲۱</p>
+    <div class="card card-click" data-keywords="nmap,انمپ,ن,ا,آ,امنیت">
+      <a href="security.html">
+        <img src="image_1762333867051.jpeg" alt="Nmap logo" class="card-image">
+        <p class="card-text">آموزش ابزار Nmap</p>
+        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۱۷</p>
+      </a>
       <div class="card-actions">
-        <a href="network.html" class="auth-button">مشاهده دوره</a>
-        <button onclick="addToFavorites('network.html')">❤️ افزودن</button>
+        <button onclick="addToFavorites('security.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
+      </div>
+    </div>
+
+    <div class="card card-click" data-keywords="شبکه,network,ip,lan,وایرشارک">
+      <a href="network.html">
+        <img src="network-logo.jpg" alt="آموزش شبکه" class="card-image">
+        <p class="card-text">آموزش شبکه</p>
+        <p class="card-date">تاریخ انتشار: ۱۴۰۴/۰۸/۲۱</p>
+      </a>
+      <div class="card-actions">
+        <button onclick="addToFavorites('network.html')">❤️ افزودن به علاقه‌مندی‌ها</button>
       </div>
     </div>
   </div>
@@ -60,95 +74,6 @@
     <p>© 2025 fsocietyclub | ساخته شده توسط آرین</p>
   </footer>
 
-  <script>
-    function showNotification(message) {
-      const box = document.getElementById("notification");
-      if (!box) return;
-      box.innerText = message;
-      box.style.display = "block";
-      box.style.opacity = "1";
-      setTimeout(() => {
-        box.style.opacity = "0";
-        setTimeout(() => {
-          box.style.display = "none";
-        }, 400);
-      }, 3000);
-    }
-
-    function loadUserInfo() {
-      const user = JSON.parse(localStorage.getItem("fsociety_user"));
-      const authBar = document.getElementById("authBar");
-      const userDropdown = document.getElementById("userDropdown");
-      const dropdownContent = document.getElementById("dropdown-content");
-
-      if (user && user.username && user.email && user.password) {
-        if (authBar) authBar.style.display = "none";
-        if (userDropdown) userDropdown.style.display = "block";
-        if (dropdownContent) {
-          dropdownContent.innerHTML = `
-            <p>نام کاربری: ${user.username}</p>
-            <p>ایمیل: ${user.email}</p>
-            <p>رمز عبور: ${user.password}</p>
-            <div class="favorites-button">
-              <a href="favorites.html">رفتن به علاقه‌مندی‌ها</a>
-            </div>
-            <div class="logout-button">
-              <button onclick="logoutUser()">🚪 خروج از حساب کاربری</button>
-            </div>
-          `;
-        }
-      }
-    }
-
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdown-content");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function logoutUser() {
-      localStorage.removeItem("fsociety_user");
-      localStorage.removeItem("fsociety_favorites");
-      window.location.href = "index.html";
-    }
-
-    function addToFavorites(link) {
-      const user = JSON.parse(localStorage.getItem("fsociety_user"));
-      if (!user || !user.username || !user.email || !user.password) {
-        showNotification("⚠️ برای افزودن به علاقه‌مندی‌ها ابتدا ثبت‌نام کنید.");
-        return;
-      }
-
-      const card = event.target.closest(".card");
-      const title = card.querySelector(".card-text").innerText;
-      const image = card.querySelector(".card-image").getAttribute("src");
-      const date = card.querySelector(".card-date")?.innerText.split(": ")[1] || "نامشخص";
-
-      let favorites = JSON.parse(localStorage.getItem("fsociety_favorites")) || [];
-
-      if (!favorites.some(f => f.link === link)) {
-        favorites.push({ link, title, image, date });
-        localStorage.setItem("fsociety_favorites", JSON.stringify(favorites));
-        showNotification("✅ آیتم به علاقه‌مندی‌ها افزوده شد!");
-      } else {
-        showNotification("⚠️ این آیتم قبلاً در علاقه‌مندی‌ها بوده.");
-      }
-    }
-
-    function filterCards() {
-      const input = document.getElementById("searchInput").value.toLowerCase().trim();
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        const keywords = card.getAttribute("data-keywords")?.toLowerCase() || "";
-        card.style.display = (text.includes(input) || keywords.includes(input)) ? "block" : "none";
-      });
-    }
-
-    window.onload = function () {
-      loadUserInfo();
-    };
-  </script>
-
+  <script src="script.js"></script>
 </body>
-      </html>
+</html>
