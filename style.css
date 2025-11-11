@@ -307,19 +307,4 @@ footer {
 }
 
 .back-button a {
-  display: inline-block;
-  margin-top: 12px;
-  background-color: #0f0;
-  color: #000;
-  padding: 8px 16px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 0 10px #0f0;
-  transition: all 0.3s ease-in-out;
-}
-
-.back-button a:hover {
-  background-color: #fff;
-  color: #0f0;
-  box-shadow
+  display
